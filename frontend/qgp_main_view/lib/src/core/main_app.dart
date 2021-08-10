@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qgp_main_view/src/features/stories/presentation/story_read.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,9 +9,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Uy no, que gonorrea',
       theme: ThemeData(
+        textTheme: GoogleFonts.notoSansTextTheme(),
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        backgroundColor: Color(0xFFD7D7D7),
         body: Center(child: StoryReadView()),
       ),
     );

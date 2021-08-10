@@ -8,27 +8,34 @@ class StoryReadView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.green),
-      padding: EdgeInsets.all(50),
-      width: 600,
-      child: Column(
-        children: [
-          StoryHeader(),
-          SizedBox(
-            height: 30,
-          ),
-          StoryBody(
-            data:
-                "Velit dolore commodo non duis sint aliquip magna consectetur veniam cupidatat est consequat quis laboris. Veniam ut irure esse commodo anim laborum est aliqua irure. Nisi culpa reprehenderit ullamco laboris ex aliqua voluptate laborum amet est adipisicing quis velit reprehenderit.Fugiat dolore aliquip duis officia occaecat dolor in quis esse tempor amet. Laborum laborum aute sit amet irure amet. Ea labore commodo eiusmod deserunt veniam nulla do. Nulla consequat qui nisi laborum ex. Officia voluptate cillum id veniam consectetur velit elit eu aliquip tempor elit laboris culpa.Irure dolore nulla laborum eiusmod. Irure amet id excepteur minim. Nostrud dolore do proident do id ullamco deserunt laboris esse. Ex sit occaecat commodo mollit consectetur eu excepteur sunt cupidatat. Pariatur laborum occaecat esse incididunt fugiat.Adipisicing qui dolore sint dolor occaecat aute deserunt. Magna culpa excepteur ex irure qui mollit ea. Officia in id laboris officia occaecat magna id proident eiusmod exercitation. Excepteur duis quis enim velit laboris culpa aliquip esse magna reprehenderit non laboris.Deserunt veniam ullamco proident ut occaecat. Id tempor id dolore ut magna est exercitation non officia aliqua deserunt. Id occaecat velit consectetur reprehenderit eu labore qui aliqua ipsum ullamco consequat irure labore. Quis veniam et ipsum ex fugiat nulla deserunt qui consequat. Amet irure proident mollit pariatur adipisicing et sit officia consectetur incididunt nulla tempor dolore.",
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          //SotryReaction(),
-          StoryComment(),
-          StoryComments()
-        ],
+    return Material(
+      color: Color(0xFFFAFAFA),
+      elevation: 20,
+      child: Container(
+        decoration: BoxDecoration(
+            //color: Colors.white,
+            //color: Color(0xFFE0E0E0),
+            ),
+        padding: EdgeInsets.all(50),
+        width: 600,
+        child: Column(
+          children: [
+            StoryHeader(),
+            SizedBox(
+              height: 30,
+            ),
+            StoryBody(
+              data:
+                  "Velit dolore commodo non duis sint aliquip magna consectetur veniam cupidatat est consequat quis laboris. Veniam ut irure esse commodo anim laborum est aliqua irure. Nisi culpa reprehenderit ullamco laboris ex aliqua voluptate laborum amet est adipisicing quis velit reprehenderit.Fugiat dolore aliquip duis officia occaecat dolor in quis esse tempor amet. Laborum laborum aute sit amet irure amet. Ea labore commodo eiusmod deserunt veniam nulla do. Nulla consequat qui nisi laborum ex. Officia voluptate cillum id veniam consectetur velit elit eu aliquip tempor elit laboris culpa.Irure dolore nulla laborum eiusmod. Irure amet id excepteur minim. Nostrud dolore do proident do id ullamco deserunt laboris esse. Ex sit occaecat commodo mollit consectetur eu excepteur sunt cupidatat. Pariatur laborum occaecat esse incididunt fugiat.Adipisicing qui dolore sint dolor occaecat aute deserunt. Magna culpa excepteur ex irure qui mollit ea. Officia in id laboris officia occaecat magna id proident eiusmod exercitation. Excepteur duis quis enim velit laboris culpa aliquip esse magna reprehenderit non laboris.Deserunt veniam ullamco proident ut occaecat. Id tempor id dolore ut magna est exercitation non officia aliqua deserunt. Id occaecat velit consectetur reprehenderit eu labore qui aliqua ipsum ullamco consequat irure labore. Quis veniam et ipsum ex fugiat nulla deserunt qui consequat. Amet irure proident mollit pariatur adipisicing et sit officia consectetur incididunt nulla tempor dolore.",
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            //SotryReaction(),
+            StoryComment(),
+            StoryComments()
+          ],
+        ),
       ),
     );
   }
@@ -92,6 +99,11 @@ class StoryComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        border: Border.all(width: 2, color: Color(0xFFD7D7D7)),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: EdgeInsets.all(15),
       child: Row(
         children: [
           Expanded(
@@ -101,7 +113,10 @@ class StoryComment extends StatelessWidget {
               maxLines: 5,
             ),
           ),
-          Icon(Icons.done)
+          Container(
+            child: Icon(Icons.done),
+            margin: EdgeInsets.symmetric(horizontal: 10),
+          )
         ],
       ),
     );

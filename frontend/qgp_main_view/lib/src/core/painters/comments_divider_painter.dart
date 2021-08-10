@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint brush = Paint()..strokeWidth = 1.5;
+    Paint brush = Paint()
+      ..strokeWidth = 3
+      ..color = Color(0xFFD7D7D7);
     pointerDivider(canvas, size, brush);
     //canvas.drawLine(Offset(0, 0), Offset(0, size.height), brush);
   }
