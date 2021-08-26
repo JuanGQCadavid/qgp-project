@@ -1,0 +1,40 @@
+version: 0.2  
+
+phases:
+  install:
+    commands:
+      - pwd
+      - yum install git -y
+      - yum install curl -y 
+      - yum install file -y 
+      - yum install mkdir -y 
+      - yum install unzip -y 
+      - yum install xz-utils -y 
+      - yum install zip -y 
+      
+      - yum install ...
+  
+  pre_build:
+    commands:
+     - echo Starting pre build at `date`
+     - git clone https://github.com/flutter/flutter.git -b stable
+     - export PATH="$PATH:`pwd`/flutter/bin"
+     - echo pre-download development binaries
+     - flutter precache
+     - echo Running Flutter doctor
+     - flutter doctor
+  
+  build:
+    commands:
+      - echo Starting build at `date`
+      - cd qgp-project/frontend/qgp_main_view
+      - flutter build web --web-renderer canvaskit --release
+      - cd build/web
+      - ls
+      - pwd
+      - zip -r output.zip *
+
+artifacs:
+  files:
+    - output.zip
+  discard-paths: yes
