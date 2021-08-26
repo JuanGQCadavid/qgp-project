@@ -28,7 +28,6 @@ phases:
       - echo Starting build at `date`
       - ls
       - pwd
-      - tree
       - cd frontend/qgp_main_view
       - flutter build web --web-renderer canvaskit --release
       - cd build/web
@@ -36,7 +35,7 @@ phases:
       - pwd
       - zip -r output.zip *
 
-artifacs:
+artifacts:
   files:
     - output.zip
   discard-paths: yes
