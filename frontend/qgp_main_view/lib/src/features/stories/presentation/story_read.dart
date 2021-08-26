@@ -33,7 +33,7 @@ class StoryReadView extends StatelessWidget {
             ),
             //SotryReaction(),
             StoryComment(),
-            StoryComments()
+            //StoryComments()
           ],
         ),
       ),

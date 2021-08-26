@@ -1,6 +1,6 @@
 import json
 import boto3
-import time
+from time import gmtime, strftime
 
 def lambda_handler(event, context):
     client = boto3.client('cloudfront')
@@ -14,7 +14,7 @@ def lambda_handler(event, context):
                     '/*',
                 ]
             },
-            'CallerReference': str(time.time())
+            'CallerReference': strftime("%d-%m-%y:%H-%M", gmtime())
         }
     )
     
