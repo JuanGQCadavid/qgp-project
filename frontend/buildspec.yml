@@ -34,8 +34,9 @@ phases:
       - ls
       - pwd
       - zip -r output.zip *
+      - ls
 
 artifacts:
   files:
-    - output.zip
+    - $CODEBUILD_SRC_DIR/frontend/qgp_main_view/build/web/output.zip
   discard-paths: yes
