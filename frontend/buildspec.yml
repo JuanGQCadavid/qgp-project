@@ -38,5 +38,5 @@ phases:
 
 artifacts:
   files:
-    - $CODEBUILD_SRC_DIR/frontend/qgp_main_view/build/web/output.zip
+    - $CODEBUILD_SRC_DIR/frontend/qgp_main_view/build/web/*
   discard-paths: yes
