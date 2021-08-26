@@ -1,0 +1,4 @@
+---
+AWSTemplateFormatVersion: "2010-09-09" # THis is optional, according to the template we could get more features!
+Description: This is a description example # Ayuda a identifcar que se esta creando, no es requerida
+Parameters: # Values that we send to the template
