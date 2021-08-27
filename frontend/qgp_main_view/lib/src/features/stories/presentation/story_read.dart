@@ -1,91 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:qgp_main_view/src/core/painters/comments_divider_painter.dart';
-
-import '../../../../main.dart';
+import 'package:qgp_main_view/src/core/widgets/cta_bottons.dart';
+import 'package:qgp_main_view/src/core/widgets/text_utils.dart';
+import 'package:qgp_main_view/src/features/stories/presentation/widgets/user_header.dart';
 
 class StoryReadView extends StatelessWidget {
   const StoryReadView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Color(0xFFFAFAFA),
-      elevation: 20,
-      child: Container(
-        decoration: BoxDecoration(
-            //color: Colors.white,
-            //color: Color(0xFFE0E0E0),
+    return Container(
+      padding: EdgeInsets.all(50),
+      width: 800,
+      child: Column(
+        children: [
+          StoryHeader(
+            userPhotoLink:
+                'https://media-exp1.licdn.com/dms/image/C5603AQHvZk-XJOlydQ/profile-displayphoto-shrink_200_200/0/1630040882983?e=1635379200&v=beta&t=T4159z7V2Ozkz04rygZWdbZoMNwXSYsdIbdbn2whVt8',
+            date: '8/27/2021',
+            userName: 'Juan Gonzalo Quiroz Cadavid',
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 60),
+            child: Align(
+                alignment: Alignment.centerLeft,
+                child: StoryTitle(
+                  title:
+                      "Rente un apartamento y me vino con una paloma muerta X.X",
+                )),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 60),
+            child: Container(
+              height: 400,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: NetworkImage('https://i.imgur.com/SzSydyn.jpg'))),
             ),
-        padding: EdgeInsets.all(50),
-        width: 600,
-        child: Column(
-          children: [
-            StoryHeader(),
-            SizedBox(
-              height: 30,
-            ),
-            StoryBody(
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 60),
+            child: StoryBody(
               data:
                   "Velit dolore commodo non duis sint aliquip magna consectetur veniam cupidatat est consequat quis laboris. Veniam ut irure esse commodo anim laborum est aliqua irure. Nisi culpa reprehenderit ullamco laboris ex aliqua voluptate laborum amet est adipisicing quis velit reprehenderit.Fugiat dolore aliquip duis officia occaecat dolor in quis esse tempor amet. Laborum laborum aute sit amet irure amet. Ea labore commodo eiusmod deserunt veniam nulla do. Nulla consequat qui nisi laborum ex. Officia voluptate cillum id veniam consectetur velit elit eu aliquip tempor elit laboris culpa.Irure dolore nulla laborum eiusmod. Irure amet id excepteur minim. Nostrud dolore do proident do id ullamco deserunt laboris esse. Ex sit occaecat commodo mollit consectetur eu excepteur sunt cupidatat. Pariatur laborum occaecat esse incididunt fugiat.Adipisicing qui dolore sint dolor occaecat aute deserunt. Magna culpa excepteur ex irure qui mollit ea. Officia in id laboris officia occaecat magna id proident eiusmod exercitation. Excepteur duis quis enim velit laboris culpa aliquip esse magna reprehenderit non laboris.Deserunt veniam ullamco proident ut occaecat. Id tempor id dolore ut magna est exercitation non officia aliqua deserunt. Id occaecat velit consectetur reprehenderit eu labore qui aliqua ipsum ullamco consequat irure labore. Quis veniam et ipsum ex fugiat nulla deserunt qui consequat. Amet irure proident mollit pariatur adipisicing et sit officia consectetur incididunt nulla tempor dolore.",
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            //SotryReaction(),
-            StoryComment(),
-            //StoryComments()
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class StoryComments extends StatelessWidget {
-  const StoryComments({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Expanded(
-          child: ListView(
-        children: [Comment(), Comment(), Comment()],
-      )),
-    );
-  }
-}
-
-class Comment extends StatelessWidget {
-  const Comment({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 25),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            child: Row(
-              children: [
-                UserPhoto(
-                  size: 50,
-                  imageProvider: NetworkImage(
-                    'https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=150&w=150',
-                  ),
-                ),
-                Container(
-                    margin: EdgeInsets.only(left: 10), child: Text("USER NAME"))
-              ],
             ),
           ),
           SizedBox(
             height: 30,
           ),
-          StoryBody(
-            displayLeftDivider: true,
-            data:
-                "Est veniam cupidatat pariatur elit velit consequat enim nostrud culpa minim elit. Ex qui amet ut exercitation non. Nostrud amet in irure voluptate dolor non. Aliquip tempor tempor enim proident fugiat quis veniam consequat sunt officia ipsum ullamco culpa.Duis exercitation est mollit ea aute laboris. Mollit non velit tempor in culpa. Qui aliqua et voluptate voluptate fugiat Lorem Lorem reprehenderit nisi laborum incididunt sunt in",
+          Container(
+            margin: EdgeInsets.only(left: 60),
+            child: StoryActions(),
           )
         ],
       ),
@@ -93,29 +67,29 @@ class Comment extends StatelessWidget {
   }
 }
 
-class StoryComment extends StatelessWidget {
-  const StoryComment({Key? key}) : super(key: key);
+class StoryActions extends StatelessWidget {
+  const StoryActions({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(width: 2, color: Color(0xFFD7D7D7)),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: EdgeInsets.all(15),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Expanded(
-            child: TextField(
-              expands: false,
-              minLines: 1,
-              maxLines: 5,
-            ),
+          TextHighlighted(
+            boddyText: '10 Comentarios',
+            icon: Icons.chat_bubble_outline,
           ),
-          Container(
-            child: Icon(Icons.done),
-            margin: EdgeInsets.symmetric(horizontal: 10),
+          SizedBox(
+            width: 20,
+          ),
+          MainCTA(
+            ctaName: 'Leer mas',
+            onTap: () {},
+            topCorner: true,
+            bottomCorner: false,
           )
         ],
       ),
@@ -123,135 +97,43 @@ class StoryComment extends StatelessWidget {
   }
 }
 
-class SotryReaction extends StatelessWidget {
-  const SotryReaction({Key? key}) : super(key: key);
+class StoryTitle extends StatelessWidget {
+  final String title;
+
+  const StoryTitle({
+    required this.title,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class Reaction extends StatelessWidget {
-  const Reaction({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+    return Container(
+        child: Text(
+      title,
+      style: Theme.of(context).textTheme.headline6,
+    ));
   }
 }
 
 class StoryBody extends StatelessWidget {
-  final data;
+  final String data;
   final bool displayLeftDivider;
+  final int maxLines;
 
   const StoryBody({
     required this.data,
     this.displayLeftDivider = false,
+    this.maxLines = 4,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 25),
-      child: Row(
-        children: [
-          if (displayLeftDivider)
-            Container(
-              height: 50,
-              width: 50,
-              child: LayoutBuilder(
-                builder: (context, constrans) {
-                  return CustomPaint(
-                    painter: MyPainter(),
-                    size: MediaQuery.of(context).size,
-                  );
-                },
-              ),
-            ),
-          Expanded(
-            child: Text(
-              data,
-            ),
-          ),
-        ],
-      ),
+    return Text(
+      data,
+      maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
+      textAlign: TextAlign.justify,
     );
   }
 }
-
-class StoryHeader extends StatelessWidget {
-  const StoryHeader({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          UserPhoto(
-            size: 100,
-            imageProvider: NetworkImage(
-              'https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=150&w=150',
-            ),
-          ),
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.only(left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "TITLE -> What a Oweful experience at sadSADASdASDasdASD!",
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  Row(
-                    children: [
-                      Text("By "),
-                      TextButton(onPressed: () {}, child: Text("Don Chalo"))
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class UserPhoto extends StatelessWidget {
-  final double size;
-  final ImageProvider imageProvider;
-
-  const UserPhoto({
-    required this.size,
-    required this.imageProvider,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: size,
-      width: size,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100.0),
-        color: Colors.black,
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: imageProvider,
-        ),
-      ),
-    );
-  }
-}
-
-/*
-  NetworkImage(
-            'https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=150&w=150',
-          )
-*/

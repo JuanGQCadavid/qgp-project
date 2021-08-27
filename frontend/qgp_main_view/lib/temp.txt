@@ -1,0 +1,84 @@
+
+
+
+// class StoryComments extends StatelessWidget {
+//   const StoryComments({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Expanded(
+//           child: ListView(
+//         children: [Comment(), Comment(), Comment()],
+//       )),
+//     );
+//   }
+// }
+
+// class Comment extends StatelessWidget {
+//   const Comment({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: EdgeInsets.only(top: 25),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Container(
+//             child: Row(
+//               children: [
+//                 UserPhoto(
+//                   size: 50,
+//                   imageProvider: NetworkImage(
+//                     'https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=150&w=150',
+//                   ),
+//                 ),
+//                 Container(
+//                     margin: EdgeInsets.only(left: 10), child: Text("USER NAME"))
+//               ],
+//             ),
+//           ),
+//           SizedBox(
+//             height: 30,
+//           ),
+//           StoryBody(
+//             displayLeftDivider: true,
+//             data:
+//                 "Est veniam cupidatat pariatur elit velit consequat enim nostrud culpa minim elit. Ex qui amet ut exercitation non. Nostrud amet in irure voluptate dolor non. Aliquip tempor tempor enim proident fugiat quis veniam consequat sunt officia ipsum ullamco culpa.Duis exercitation est mollit ea aute laboris. Mollit non velit tempor in culpa. Qui aliqua et voluptate voluptate fugiat Lorem Lorem reprehenderit nisi laborum incididunt sunt in",
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// class StoryComment extends StatelessWidget {
+//   const StoryComment({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         border: Border.all(width: 2, color: Color(0xFFD7D7D7)),
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       padding: EdgeInsets.all(15),
+//       child: Row(
+//         children: [
+//           Expanded(
+//             child: TextField(
+//               expands: false,
+//               minLines: 1,
+//               maxLines: 5,
+//             ),
+//           ),
+//           Container(
+//             child: Icon(Icons.done),
+//             margin: EdgeInsets.symmetric(horizontal: 10),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
