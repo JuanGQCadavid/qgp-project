@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: AWS Lambda for User service
+Parameters:
+  pa1:
+    Type: String
+
+Resources:
+
+  CognitoPool:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: cognito_stack.yaml
+
+  UserService:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: user_service_stack.yaml
+      Parameters:
+        pa1: !Ref pa1
+    DependsOn: CognitoPool
+  
+  PublicApisGateway:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: public_api_gateway.yaml
+    DependsOn: UserService
