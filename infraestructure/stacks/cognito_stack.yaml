@@ -12,9 +12,20 @@ Resources:
           RequireNumbers: True
       UsernameAttributes: 
         - "phone_number"
+  
+  CognitoUserClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties: 
+      ClientName: "qgp-userservice-client"
+      UserPoolId: !Ref CognitoUserPool
+      GenerateSecret: False
 
 Outputs:
   CognitoUserPool:
     Value: !Ref CognitoUserPool
     Export:
       Name: CognitoUserPool
+  CognitoClientId:
+    Value: !Ref CognitoUserClient
+    Export:
+      Name: CognitoUserClientId
