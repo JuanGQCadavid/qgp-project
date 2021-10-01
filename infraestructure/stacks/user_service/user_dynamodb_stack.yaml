@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: DynamoDB for User service.
+Resources:
+  
+  DynamoDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - FUCK!
+      BillingMode: "PAY_PER_REQUEST"
+      ContributorInsightsSpecification:
+        Enabled: True
+         
+
+Outputs:
+  CognitoUserPool:
+    Value: !Ref CognitoUserPool
+    Export:
+      Name: CognitoUserPool
+  CognitoClientId:
+    Value: !Ref CognitoUserClient
+    Export:
+      Name: CognitoUserClientId
