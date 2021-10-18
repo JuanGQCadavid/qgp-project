@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Cognito pool for all the services.
+Resources:
+  
+  CognitoUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: "qgp-user-pool"
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireNumbers: True
+      UsernameAttributes: 
+        - "phone_number"
+  
+  CognitoUserClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties: 
+      ClientName: "qgp-userservice-client"
+      UserPoolId: !Ref CognitoUserPool
+      GenerateSecret: False
+
+Outputs:
+  CognitoUserPool:
+    Value: !Ref CognitoUserPool
+    Export:
+      Name: CognitoUserPool
+  CognitoClientId:
+    Value: !Ref CognitoUserClient
+    Export:
+      Name: CognitoUserClientId
