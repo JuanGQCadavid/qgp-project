@@ -45,6 +45,7 @@ class StoryReadView extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image(
+              height: 220,
               image: NetworkImage(storyImageURL),
               fit: BoxFit.contain,
             ),
