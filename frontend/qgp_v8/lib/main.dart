@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:qgp_v8/core/app_main.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainApp());
 }
 
 class MyApp extends StatelessWidget {
